@@ -64,7 +64,8 @@ class AdapterPipelineTests(unittest.TestCase):
             out_py = Path(td) / "launcher_out.py"
             out_py.write_text(res["output"]["source"], encoding="utf-8")
             env = dict(os.environ)
-            env[gate_env] = "1"
+            self.assertTrue(res["integrity"].get("gate_token"))
+            env[gate_env] = res["integrity"]["gate_token"]
             proc = subprocess.run([sys.executable, str(out_py)], env=env, capture_output=True, text=True, timeout=15)
             self.assertEqual(proc.returncode, 0, proc.stderr)
             self.assertIn("UNIT:55:", proc.stdout)

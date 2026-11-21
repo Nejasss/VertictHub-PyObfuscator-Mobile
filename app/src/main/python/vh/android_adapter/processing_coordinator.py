@@ -195,6 +195,7 @@ def execute_transformation_pipeline(
             "output_sha256": hashlib.sha256(out_bytes).hexdigest(),
             "launcher_gate_enabled": bool(gate_info),
             "gate_env_name": gate_info["env_name"] if gate_info else None,
+            "gate_token": gate_info["token"] if gate_info else None,
             "filename_locked": opts.lock_filename,
             "leak_scan": leak_result,
         },
