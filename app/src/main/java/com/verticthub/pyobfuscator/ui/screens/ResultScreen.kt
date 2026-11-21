@@ -109,8 +109,7 @@ fun ResultScreen(state: StudioUiState, viewModel: StudioViewModel) {
                     Text("Validasi AST: ${res.validationSummary}", style = MaterialTheme.typography.bodySmall, color = palette.textPrimary)
                     Text("Manifest & Gate: ${res.manifestSummary}", style = MaterialTheme.typography.bodySmall, color = palette.textPrimary)
                     Text("Runtime: ${res.runtimeCompatibilitySummary}", style = MaterialTheme.typography.bodySmall, color = palette.textSecondary)
-                    Text("Leak Scan:
-${res.leakFormattedReport}", style = MaterialTheme.typography.labelSmall, color = palette.textSecondary)
+                    Text("Leak Scan:\n${res.leakFormattedReport}", style = MaterialTheme.typography.labelSmall, color = palette.textSecondary)
                 }
                 if (res.transformations.isNotEmpty()) {
                     VHSurfaceCard {
